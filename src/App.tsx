@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
 import { useWeatherData } from "./hooks/weatherData";
 import Spinner from "./components/spinner/Spinner";
+import { Hour } from "./interfaces/Api/hour";
+import { useGetDayName } from "./hooks/getDayName";
 function App() {
   const [newlocation, setNewLocation] = useState<string>();
 
-  const { weatherData, error, location, loading } = useWeatherData(newlocation);
+  const { weatherData, error, loading } = useWeatherData(newlocation);
   const [inputValue, setInputValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
-
+  const getUserLocale = navigator.language ;
+  const formatTime = (time:string) => {
+   return  `${time.split(':')[0]} ${time.split(':')[2]}`
+  }
+  
+  const getDayName = useGetDayName()
   useEffect(() => {
     //handle debounce time in ms
     const handler = setTimeout(() => {
@@ -24,8 +31,10 @@ function App() {
       setNewLocation(debouncedValue);
     }
   }, [debouncedValue]);
-  console.log(location);
-  console.log(Number.isNaN(location.split(",")[0]));
+const filterForecastHours = (hour:Hour[]) => 
+  hour.filter((h)=>new Date(h.time)> new Date())
+
+
 
   return (
     <div className="container">
@@ -48,31 +57,16 @@ function App() {
       ) : weatherData ? (
         <div className="content-container">
           <main>
-           <h2>Today</h2>
-            <section>
-              <article>
-                <h2>Título de la tarjeta</h2>
-                <figure>
-                  <img src="ruta-a-tu-imagen" alt="Descripción de la imagen" />
-                  <figcaption>Texto relacionado con la imagen</figcaption>
-                </figure>
-                <p>Texto de la tarjeta</p>
-              </article>
-              {/* Repite el artículo para cada tarjeta */}
-            </section>
-         
-            <section>
-              <p>Texto adicional aquí</p>
-            </section>
+           
           </main>
           <div className="vertical-line"></div>
           <aside className="aside">
           <h3>Today</h3>
            <section className="card-sm-figure-container">
            
-           {weatherData.forecast.forecastday[0].hour.map((hour,index)=>
+           {filterForecastHours(weatherData.forecast.forecastday[0].hour).map((hour,index)=>
         index<=3 &&  <div className="card-sm-figure">
-        <time dateTime={hour.time}>{new Date(hour.time).toLocaleTimeString()}</time>
+        <time dateTime={hour.time}>{ formatTime (new Date(hour.time).toLocaleTimeString())}</time>
          <figure >
            <img src={hour.condition.icon} alt={hour.condition.text}/>
          </figure>
@@ -83,7 +77,7 @@ function App() {
             <section>
            {weatherData.forecast.forecastday.map((forecastDay,index)=>
         index>0 &&  <div className="card-horizontal">
-        <h5 >{new Date(forecastDay.date).toLocaleDateString()}</h5>
+        <h5 >{getDayName(getUserLocale,new Date(forecastDay.date)) }</h5>
          <h5>{forecastDay.day.avgtemp_c}°C/{forecastDay.day.avgtemp_f}°F</h5>
          <figure >
            <img src={forecastDay.day.condition.icon} alt={forecastDay.day.condition.text}/>

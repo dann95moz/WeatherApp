@@ -37,6 +37,7 @@ body {
 }
 .card-sm-figure-container{
     display: flex;
+    gap:1rem
 }
 .card-sm-figure{
     display: flex;
@@ -45,7 +46,8 @@ body {
 }
 .card-horizontal{
     display: flex;
-    
+    justify-content: space-between;
+    align-items: center;
 }
 figure{
     margin:0

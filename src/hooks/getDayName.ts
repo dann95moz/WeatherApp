@@ -1,5 +1,5 @@
-export const useGetDayName = (date:Date) => {
-    const days=['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    return days[date.getDate()]
+export const useGetDayName = () => {
+    return function(language = 'en',date: Date) {
+        return new Intl.DateTimeFormat(language, { weekday: 'long' }).format(date);
+    }
 }
-

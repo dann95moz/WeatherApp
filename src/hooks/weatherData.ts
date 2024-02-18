@@ -56,5 +56,5 @@ export const useWeatherData = (params?: string) => {
     fetchWeatherData();
   }, [params, location]);
 
-  return { weatherData, loading, error, location, geoError }; 
+  return { weatherData, loading, error, geoError }; 
 };
