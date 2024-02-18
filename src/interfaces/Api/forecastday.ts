@@ -3,7 +3,7 @@ import { Day } from "./day";
 import { Hour } from "./hour";
 
 export interface Forecastday {
-    date:       Date;
+    date:       string;
     date_epoch: number;
     day:        Day;
     astro:      Astro;
