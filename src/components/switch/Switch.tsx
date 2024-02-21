@@ -2,26 +2,27 @@ import React, { useState } from 'react';
 import './Switch.css';
 
 interface SwitchProps {
-  initialValue: 'C' | 'F';
+
+  setTemperatureUnit: React.Dispatch<React.SetStateAction<'C' | 'F'>>
+  temperatureUnit: 'C' | 'F'
 }
 
-const Switch: React.FC<SwitchProps> = ({ initialValue }) => {
-  const [value, setValue] = useState(initialValue);
+const Switch: React.FC<SwitchProps> = ({ temperatureUnit,setTemperatureUnit }) => {
 
   const handleChange = () => {
-    setValue(value === 'C' ? 'F' : 'C');
+    setTemperatureUnit(temperatureUnit === 'C' ? 'F' : 'C');
   };
 
   return (
     <label className="switch">
       <input
         type="checkbox" 
-        checked={value === 'C'}
+        checked={temperatureUnit === 'C'}
         onChange={handleChange}
       />
       <span className="slider round">
-        <div className={value === 'C' ? 'circle left' : 'circle right'}>
-          <span>{value}</span>
+        <div className={temperatureUnit === 'C' ? 'circle left' : 'circle right'}>
+          <span>{temperatureUnit}</span>
         </div>
       </span>
     </label>
