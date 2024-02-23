@@ -1,17 +1,13 @@
-.widget_container{
+.container{
     display: flex;
-flex-direction: column;  
-  flex: 1 0 0
-}
-.widget_header{
-    display: flex;
+    padding: 1rem 1.5rem;
     justify-content: space-between;
     align-items: center;
-}
-.widget_weather_figure{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+    flex:1
+  
 }
 .title{
     font-size: 1.5rem;
@@ -28,4 +24,9 @@ flex-direction: column;
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
+}
+.text-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }

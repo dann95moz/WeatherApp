@@ -4,13 +4,13 @@ interface CardProps {
   hour: Hour;
   temperatureUnit: string;
 }
-const CardY : React.FC<CardProps> = ({hour,temperatureUnit}) => {
+const CardY  = ({hour,temperatureUnit}:CardProps) => {
 
   return (
     <div className={styles.card_sm_figure}  >
         <time dateTime={hour.time}>{ hour.time.split(' ')[1]}</time>
          <figure >
-           <img src={hour.condition.icon} alt={hour.condition.text}/>
+           <img src={hour.condition.icon} alt={hour.condition.text} width={40}/>
          </figure>
         
            <h5>{temperatureUnit==='C'?hour.temp_c:hour.temp_f}°{temperatureUnit}</h5>

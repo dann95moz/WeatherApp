@@ -8,34 +8,31 @@ interface GraphCardProps{
     
 }
 const GraphCard = ({hour,temperatureUnit}:GraphCardProps) => {
-  const quarterHours=['02:00','05:00','08:00','11:00','14:00','17:00','20:00',]
+  const quarterHours=['01:00','04:00','07:00','10:00','13:00','16:00','19:00','22:00']
  const formattedData= hour.map((hour)=>{
-  console.log(hour.time);
   
   return {...hour, shortTime: hour.time.split(' ')[1]}
  })
-
-
- console.log('formatted',formattedData);
- 
- 
-
-  
-  
-
-
-
   
   return (
     
     <div className={styles.card_content}>
-        <h2>How's the temperature today?</h2>
+        <h3>How's the temperature today?</h3>
          <LineChart
-              width={500}
-              height={200}
+              width={300}
+              height={130}
               data={formattedData}
             >
-     
+      <YAxis
+              tick={false}
+              axisLine={false}
+              hide={true}
+                dataKey={temperatureUnit==='C'?"temp_c":"temp_f"}
+                domain={[
+                  (dataMin: number) => dataMin - 1,
+                  (dataMax: number) => dataMax + 1,
+                ]}
+              />
               <XAxis 
                tick={true}
                 dataKey={'shortTime'}
@@ -43,6 +40,7 @@ const GraphCard = ({hour,temperatureUnit}:GraphCardProps) => {
                axisLine={false}
                stroke="#ffffff80"
                fontSize={'10px'}
+           
                />
                {quarterHours.map((hour, index) => (
     <ReferenceLine x={hour} stroke="#ffffff80" key={index} 

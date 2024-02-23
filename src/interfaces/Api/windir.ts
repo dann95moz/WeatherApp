@@ -1,7 +1,19 @@
 export enum WindDir {
+    N = "N",
+    NNE = "NNE",
+    NE = "NE",
+    ENE = "ENE",
+    E = "E",
+    ESE = "ESE",
+    SE = "SE",
+    SSE = "SSE",
     S = "S",
-    Ssw = "SSW",
-    Sw = "SW",
+    SSW = "SSW",
+    SW = "SW",
+    WSW = "WSW",
     W = "W",
-    Wsw = "WSW",
+    WNW = "WNW",
+    NW = "NW",
+    NNW = "NNW"
 }
+

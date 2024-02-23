@@ -1,7 +1,7 @@
 import { api } from '../axios/axiosConfig';
 import { WeatherForecast } from '../interfaces/Api/weatherForecast';
 
-export const getWeatherData = async (params:string | null): Promise<WeatherForecast> => {  
+export const getWeatherData = async (params:string | null): Promise<WeatherForecast> => {
   const location = params? params:  'New York';
   try {
     const response = await api.get(`/forecast.json`, { params: { q: location } });

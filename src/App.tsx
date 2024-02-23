@@ -8,6 +8,9 @@ import CardY from "./components/CardY/CardY";
 import CardX from "./components/CardX/CardX";
 import GraphCard from "./components/GraphCard/GraphCard";
 import CurrentWeatherWidget from "./components/CurrentWeatherWidget/CurrentWeatherWidget";
+import Compass from "./components/Compass/Compass";
+import MainCard from "./components/MainCard/MainCard";
+import Humidity from "./components/RainChance/RainChance";
 function App() {
   const [newlocation, setNewLocation] = useState<string>();
   const { weatherData, error, loading } = useWeatherData(newlocation);
@@ -72,21 +75,46 @@ function App() {
             temperatureUnit={temperatureUnit}/>
             <GraphCard  hour={weatherData.forecast.forecastday[0].hour} temperatureUnit={temperatureUnit}/>
             </div>
-    {/* <Indicator
-    currentValue={7}
-    max={10}
-    min={0}
-    steps={10}
-    labels={['low','medium','high']}
-     /> */}
           </main>
-          </div>
+          <div className={styles.main_cards_container}>
+       <MainCard
+        title={'Wind'}
+       subTitle={"Today Wind speed"}
+       description={`${weatherData.current.wind_kph}Km/h`}
+       >
+<Compass size={60} direction={weatherData.current.wind_dir}/>
+       </MainCard>
+       <MainCard
+        title={'Wind'}
+       subTitle={"Today Wind speed"}
+       description={`${weatherData.current.wind_kph}Km/h`}
+       >
+<Compass size={60} direction={weatherData.current.wind_dir}/>
+       </MainCard>
+       <MainCard
+        title={'Wind'}
+       subTitle={"Today Wind speed"}
+       description={`${weatherData.current.wind_kph}Km/h`}
+       >
+<Compass size={60} direction={weatherData.current.wind_dir}/>
+       </MainCard>
+       <MainCard
+        title={'Humidity'}
+       subTitle={'Today Humidity'}
+       description={`${weatherData.current.humidity}`}
+       >
+        <Humidity percentage={weatherData.current.humidity}/>
+       </MainCard>
+       </div>
+        </div>
+ 
+          
           <aside className={styles.aside}>
             <h3>Today</h3>
             <section className={styles.card_sm_figure_container}>
               {filterForecastHours(
                 weatherData.forecast.forecastday[0].hour
-              ).map((hour, index) => index <= 3 &&
+              ).map((hour, index) => 
                <CardY
                 hour={hour}
                  temperatureUnit={temperatureUnit}

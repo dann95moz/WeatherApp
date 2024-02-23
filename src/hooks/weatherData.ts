@@ -20,7 +20,7 @@ export const useWeatherData = (params?: string) => {
         },
         (error) => {
           setGeoError(`Error obtaining location: ${error.message}`);
-          console.error(`Error obtaining location: ${error.message}`);
+console.error(`Error obtaining location: ${error.message}`);
         }
       );
     }else if(params){
@@ -28,7 +28,7 @@ export const useWeatherData = (params?: string) => {
     }
      else {
       setGeoError("Lat Long was not Provided and Geolocation is not supported by this browser.");
-      console.error("Lat Long was not Provided and Geolocation is not supported by this browser.");
+console.error("Lat Long was not Provided and Geolocation is not supported by this browser.");
     }
   }, []);
 
@@ -47,7 +47,7 @@ export const useWeatherData = (params?: string) => {
         setError('')
       } catch (error) {
         setError("Error getting data");
-        console.error(error);
+console.error(error);
       } finally { //stops loading
         setLoading(false); 
       }

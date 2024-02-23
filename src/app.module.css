@@ -13,7 +13,6 @@ body {
 .container{
     display: flex;
     height: 100vh;
-    flex-wrap: wrap;
 }
 
 .form{
@@ -26,9 +25,10 @@ body {
     display: flex;
     flex-direction: column;
     flex:1;
-    gap: 2.5rem;
+    gap: 1rem;
     background-color: #F6F6F8;
-    padding: 3.5rem 1.5rem 0;
+    padding: 2.5rem 1.5rem 0;
+    height: 100vh;
 }
 .vertical_line{
     height: 80vh; /* Ajusta a la altura que necesites */
@@ -37,14 +37,14 @@ body {
     margin:1rem 0;
 }
 .aside{
-    display: flex;
-    flex: 0 0 30%;
-    flex-direction: column;
+
     padding: 3.5rem 2rem 0;
+    max-width: 22vw;
 }
 .card_sm_figure_container{
     display: flex;
-    gap:1rem
+    gap:1rem;
+    overflow-x: scroll;
 }
 .card_horizontal{
     display: flex;
@@ -55,8 +55,8 @@ body {
     display: flex;
 padding: 1rem;
 align-items: center;
-gap: 24px;
-border-radius: 16px;
+gap: 1.5rem;
+border-radius: 1rem;
 background: linear-gradient(102deg, #325AF2 0%, #6E24F3 47.5%, #9363EC 100%);
 color:white
 }
@@ -68,4 +68,9 @@ color:white
     background: #FAFAFA;
     
     box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.10);
+}
+.main_cards_container{
+display: flex;
+gap:1rem;
+flex-wrap: wrap;
 }
