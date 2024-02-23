@@ -19,7 +19,8 @@ const GraphCard = ({hour,temperatureUnit}:GraphCardProps) => {
     <div className={styles.card_content}>
         <h3>How's the temperature today?</h3>
          <LineChart
-              width={300}
+            
+              width={250}
               height={130}
               data={formattedData}
             >

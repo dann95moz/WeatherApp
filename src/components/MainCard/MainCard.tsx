@@ -10,7 +10,7 @@ interface MainCardProps{
 const MainCard = ({title, subTitle, description, children}: PropsWithChildren<MainCardProps>) => {
   return (
     <div className={styles.container}>
-      <div className='text-container'>
+      <div className={styles.text_container}>
         <h3 className={styles.title}>{title}</h3>
         <h4 className={styles.subtitle}>{subTitle}</h4>
         <h4 className={styles.description}>{description}</h4>

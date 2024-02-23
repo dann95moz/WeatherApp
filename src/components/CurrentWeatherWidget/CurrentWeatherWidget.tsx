@@ -14,7 +14,7 @@ const CurrentWeatherWidget = ({weatherForecast, temperatureUnit}:Props) => {
         </span>
         <div className={styles.widget_weather_figure}>
         <figure >
-            <img src={weatherForecast.current.condition.icon} alt={weatherForecast.current.condition.text} />
+            <img src={weatherForecast.current.condition.icon} alt={weatherForecast.current.condition.text}  width={136} height={136}/>
         </figure>
         <h1>{temperatureUnit==='C'?weatherForecast.current.temp_c:weatherForecast.current.temp_f}°{temperatureUnit}</h1>
         </div>

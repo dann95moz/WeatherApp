@@ -11,6 +11,7 @@ import CurrentWeatherWidget from "./components/CurrentWeatherWidget/CurrentWeath
 import Compass from "./components/Compass/Compass";
 import MainCard from "./components/MainCard/MainCard";
 import Humidity from "./components/RainChance/RainChance";
+import UVIndex from "./components/UVIndex/UVIndex";
 function App() {
   const [newlocation, setNewLocation] = useState<string>();
   const { weatherData, error, loading } = useWeatherData(newlocation);
@@ -92,18 +93,17 @@ function App() {
 <Compass size={60} direction={weatherData.current.wind_dir}/>
        </MainCard>
        <MainCard
-        title={'Wind'}
-       subTitle={"Today Wind speed"}
-       description={`${weatherData.current.wind_kph}Km/h`}
-       >
-<Compass size={60} direction={weatherData.current.wind_dir}/>
-       </MainCard>
-       <MainCard
         title={'Humidity'}
        subTitle={'Today Humidity'}
        description={`${weatherData.current.humidity}`}
        >
         <Humidity percentage={weatherData.current.humidity}/>
+       </MainCard>
+       <MainCard
+       title="UV Index"
+       subTitle="Today UV Index"
+       description={`${weatherData.current.uv}`}>
+        <UVIndex/>
        </MainCard>
        </div>
         </div>

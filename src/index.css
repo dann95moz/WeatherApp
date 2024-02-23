@@ -3,15 +3,18 @@
 }
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #F6F6F8;
+}
+main{
+    display: flex;
+}
+h1{
+    font-size: 5.5rem;
+    font-weight: 300;
 }
 .container{
     margin: 2rem 5rem 0
 }
 
-.aside{
-    display: flex;
-    flex: 0 0 30%;
-    flex-direction: column;
-}
 
 
