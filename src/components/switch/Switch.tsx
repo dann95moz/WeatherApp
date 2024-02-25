@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import './Switch.css';
 
 interface SwitchProps {
@@ -14,6 +14,7 @@ const Switch: React.FC<SwitchProps> = ({ temperatureUnit,setTemperatureUnit }) =
   };
 
   return (
+  
     <label className="switch">
       <input
         type="checkbox" 

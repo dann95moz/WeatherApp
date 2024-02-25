@@ -13,7 +13,7 @@ const Humidity = ({percentage}:CircleProps) => {
     return (
         <div className={styles.graph_container}>
             <span className={styles.graph}>{showValue}</span>
-            <svg width="80" height="80" viewBox="0 0 140 140">
+            <svg width="80" height="90" viewBox="0 0 140 140">
                 <circle
                   stroke="#D9D9D9"
                   fill="none"

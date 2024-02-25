@@ -1,4 +1,3 @@
-import styles from './GraphCard.module.css'
 import { Line, LineChart, ReferenceLine, Tooltip, XAxis, YAxis } from 'recharts'
 import { CustomTooltip } from '../CustomToolTip/CustomTooltip'
 import { Hour } from '../../interfaces/Api/hour'
@@ -16,12 +15,12 @@ const GraphCard = ({hour,temperatureUnit}:GraphCardProps) => {
   
   return (
     
-    <div className={styles.card_content}>
+    < >
         <h3>How's the temperature today?</h3>
          <LineChart
             
-              width={250}
-              height={130}
+              width={350}
+              height={180}
               data={formattedData}
             >
       <YAxis
@@ -57,7 +56,7 @@ const GraphCard = ({hour,temperatureUnit}:GraphCardProps) => {
               />
               <Tooltip content={<CustomTooltip temperatureUnit={temperatureUnit}/>} />
             </LineChart>
-    </div>
+    </>
   )
 }
 
