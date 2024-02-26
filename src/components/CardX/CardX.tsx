@@ -1,6 +1,6 @@
 import { Forecastday } from '../../interfaces/Api/forecastday'
 import { useGetDayName } from '../../hooks/getDayName';
-import styles from './CardX.module.css'
+import { Grid } from '@mui/material';
 const getUserLocale = navigator.language;
 interface CardXProps{
   forecastDay:Forecastday;
@@ -9,7 +9,7 @@ interface CardXProps{
 const CardX = ({forecastDay,temperatureUnit}:CardXProps) => {
     const getDayName = useGetDayName();    
   return (
-    <div className={styles.card_horizontal} >
+    <Grid item md={12} display={'flex'} justifyContent={'space-between'}>
                       <h5>
                         {getDayName(getUserLocale, new Date(forecastDay.date))}
                       </h5>
@@ -22,7 +22,7 @@ const CardX = ({forecastDay,temperatureUnit}:CardXProps) => {
                           alt={forecastDay.day.condition.text}
                         />
                       </figure>
-                    </div>
+                    </Grid>
   )
 }
 

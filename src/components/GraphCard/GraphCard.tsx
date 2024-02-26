@@ -1,12 +1,17 @@
 import { Line, LineChart, ReferenceLine, Tooltip, XAxis, YAxis } from 'recharts'
 import { CustomTooltip } from '../CustomToolTip/CustomTooltip'
 import { Hour } from '../../interfaces/Api/hour'
+
+import { useMediaQuery, useTheme } from '@mui/material'
+import { Theme } from '@mui/system'
 interface GraphCardProps{
     hour:Hour[],
     temperatureUnit:'C'| 'F'
     
 }
 const GraphCard = ({hour,temperatureUnit}:GraphCardProps) => {
+  const theme = useTheme() as Theme;
+const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const quarterHours=['01:00','04:00','07:00','10:00','13:00','16:00','19:00','22:00']
  const formattedData= hour.map((hour)=>{
   
@@ -19,7 +24,7 @@ const GraphCard = ({hour,temperatureUnit}:GraphCardProps) => {
         <h3>How's the temperature today?</h3>
          <LineChart
             
-              width={350}
+              width={isSmallScreen?250:350}
               height={180}
               data={formattedData}
             >

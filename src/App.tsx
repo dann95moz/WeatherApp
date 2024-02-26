@@ -46,12 +46,12 @@ function App() {
       ) : error ? (
         <p>{error}</p>
       ) : weatherData ? (
-        <Grid container spacing={2}>
-          <Grid item md={8} sm={12}> {/* left side */}
-            <Grid container gap={2}>
-              <Grid container spacing={2}> {/* form search */}
+        <Grid container  padding={2}>
+          <Grid item md={8} sm={12} padding={2}> {/* left side */}
+            <Grid container gap={2} paddingTop={8}>
+              <Grid container spacing={2} display={'flex'} justifyContent={'space-between'}> {/* form search */}
 
-                <Grid item md={11}>{/* input */}
+                <Grid item md={11} sm={11}>{/* input */}
                   <form role="search" className={styles.form}>
                     <input
                       type="search"
@@ -63,7 +63,7 @@ function App() {
                     />
                   </form>
                 </Grid>
-                <Grid item display={"flex"} justifyContent={"flex-end"} md={1}>  {/* switch */}
+                <Grid item display={"flex"} justifyContent={"flex-end"} md={1} sm={1}>  {/* switch */}
                   <Switch
                     setTemperatureUnit={setTemperatureUnit}
                     temperatureUnit={temperatureUnit}
@@ -91,8 +91,8 @@ function App() {
                 </Grid>
               </Grid>
 
-              <Grid container spacing={2}>
-                <Grid item md={6} sm={12}>
+              <Grid container spacing={2} display={'flex'}>
+                <Grid item md={6} sm={12} flex={1}>
                   <MainCard
                     title={"Wind"}
                     subTitle={"Today Wind speed"}
@@ -104,7 +104,7 @@ function App() {
                     />
                   </MainCard>
                 </Grid>
-                <Grid item md={6} sm={12}>
+                <Grid item md={6} sm={12} flex={1}>
                   <MainCard
                     title={"Wind"}
                     subTitle={"Today Wind speed"}
@@ -116,7 +116,7 @@ function App() {
                     />
                   </MainCard>
                 </Grid>
-                <Grid item md={6} sm={12}>
+                <Grid item md={6} sm={12} flex={1}>
                   <MainCard
                     title={"Humidity"}
                     subTitle={"Today Humidity"}
@@ -125,7 +125,7 @@ function App() {
                     <Humidity percentage={weatherData.current.humidity} />
                   </MainCard>
                 </Grid>
-                <Grid item md={6} sm={12}>
+                <Grid item md={6} sm={12} flex={1}>
                   <MainCard
                     title="UV Index"
                     subTitle="Today UV Index"
@@ -138,10 +138,10 @@ function App() {
             </Grid>
           </Grid>
 
-          <Grid item md={4} sm={12}>
-            <aside className={styles.aside}>
-              <h3>Today</h3>
-              <section className={styles.card_sm_figure_container}>
+          {/* <Grid item md={4} sm={12}> 
+          
+             
+              <Grid item md={12} sm={6} className={styles.slider}>
                 {filterForecastHours(
                   weatherData.forecast.forecastday[0].hour
                 ).map((hour, index) => (
@@ -151,8 +151,8 @@ function App() {
                     key={index}
                   />
                 ))}
-              </section>
-              <section>
+              </Grid>
+              <Grid container>
                 {weatherData.forecast.forecastday.map(
                   (forecastDay, index) =>
                     index > 0 && (
@@ -163,9 +163,9 @@ function App() {
                       />
                     )
                 )}
-              </section>
-            </aside>
-          </Grid>
+              </Grid>
+           
+          </Grid> */}
         </Grid>
       ) : null}
     </>
