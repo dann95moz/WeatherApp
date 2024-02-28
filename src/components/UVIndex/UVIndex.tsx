@@ -3,6 +3,22 @@ interface UVProps{
   index:number
 }
 const UVIndex = ({index}:UVProps) => {
+  const indexLevels = [
+    { max: 2, value: 'very low' },
+    { max: 6, value: 'low' },
+    { max: 8, value: 'moderate' },
+    { max: 11, value: 'high' },
+    { max: Infinity, value: 'very high' }
+  ];
+  
+  function getIndexLevel(index:number) {
+    for (let i = 0; i < indexLevels.length; i++) {
+      if (index < indexLevels[i].max) {
+        return indexLevels[i].value;
+      }
+    }
+  }
+  const text = getIndexLevel(index);
   const radius = 43; // El radio del semicírculo
   const angle = (1 - index / 11) * Math.PI; // Convierte el valor a un ángulo en radianes
   const leftPosition = `${39 + radius * Math.cos(angle)}%`; // Calcula la posición left
@@ -22,6 +38,7 @@ const UVIndex = ({index}:UVProps) => {
 </linearGradient>
 </defs>
 </svg>
+<span className='label'>{text}</span>
 </div>
   )
 }

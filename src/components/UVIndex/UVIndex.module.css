@@ -9,3 +9,8 @@
     left: 0;
     top: 0; 
 }
+.label{
+    position: absolute;
+    left: 15%;
+    bottom: 32%;
+}
