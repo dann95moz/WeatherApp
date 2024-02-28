@@ -49,9 +49,9 @@ function App() {
         <Grid container  padding={2}>
           <Grid item md={8} sm={12} padding={2}> {/* left side */}
             <Grid container gap={2} >
-              <Grid container spacing={2} display={'flex'} justifyContent={'space-between'}> {/* form search */}
+              <Grid container display={'flex'} justifyContent={'space-between'}> {/* form search */}
 
-                <Grid item md={11} sm={11} display={'flex'} flex={1}>{/* input */}
+                <Grid item md={11} sm={11} display={'flex'} flex={1} paddingRight={2}>{/* input */}
                   <form role="search" className={styles.form} >
                     <input
                       type="search"
@@ -63,7 +63,7 @@ function App() {
                     />
                   </form>
                 </Grid>
-                <Grid item display={"flex"} justifyContent={"flex-end"} md={1} sm={1}>  {/* switch */}
+                <Grid item display={"flex"} justifyContent={"flex-end"} p={0} md={1} sm={1}> 
                   <Switch
                     setTemperatureUnit={setTemperatureUnit}
                     temperatureUnit={temperatureUnit}

@@ -24,7 +24,7 @@ body {
 }
 .form{
     flex:1;
-
+    height: 2rem;
 }
 
 .card_horizontal{
