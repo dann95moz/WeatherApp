@@ -99,7 +99,7 @@ function App() {
                   >
                     <Compass
                       size={60}
-                      direction={weatherData.current.wind_dir}
+                      direction={weatherData.current.wind_degree}
                     />
                   </MainCard>
                 </Grid>
@@ -111,7 +111,7 @@ function App() {
                   >
                     <Compass
                       size={60}
-                      direction={weatherData.current.wind_dir}
+                      direction={weatherData.current.wind_degree}
                     />
                   </MainCard>
                 </Grid>

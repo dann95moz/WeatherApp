@@ -1,6 +1,5 @@
 import { Grid } from '@mui/material'
 import { WeatherForecast } from '../../interfaces/Api/weatherForecast'
-import styles from './currentWeatherWidget.module.css'
 interface Props{
     weatherForecast:WeatherForecast
    temperatureUnit:'C'|'F'

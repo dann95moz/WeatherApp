@@ -1,32 +1,14 @@
-import { WindDir } from "../../interfaces/Api/windir";
 import styles from './Compass.module.css'
 
 interface Props {
  
     size: number;
-    direction: WindDir
+    direction: number
 }
 
 const Compass = ({size, direction}: Props) => {
-    const rotations = {
-        'N': 0,
-        'NNE': 22.5,
-        'NE': 45,
-        'ENE': 67.5,
-        'E': 90,
-        'ESE': 112.5,
-        'SE': 135,
-        'SSE': 157.5,
-        'S': 180,
-        'SSW': 202.5,
-        'SW': 225,
-        'WSW': 247.5,
-        'W': 270,
-        'WNW': 292.5,
-        'NW': 315,
-        'NNW': 337.5
-    };
-    const rotation = rotations[direction] || 0;
+
+   
 
     return (
         <div className={styles.compass_container}>
@@ -42,7 +24,7 @@ const Compass = ({size, direction}: Props) => {
                     <stop offset="1" stopColor="#9863EB"/>
                 </linearGradient>
             </defs>
-            <path transform={`translate(58, 13.5) rotate(${rotation}, 7.5, 51.625)`} d="M6.25 102.412C6.25 103.102 6.80964 103.662 7.5 103.662C8.19036 103.662 8.75 103.102 8.75 102.412H6.25ZM7.5 0.588229L0.283121 13.0882H14.7169L7.5 0.588229ZM8.75 102.412L8.75 11.8382H6.25L6.25 102.412H8.75Z" fill="#6E24F3"/>
+            <path transform={`translate(58, 13.5) rotate(${direction}, 7.5, 51.625)`} d="M6.25 102.412C6.25 103.102 6.80964 103.662 7.5 103.662C8.19036 103.662 8.75 103.102 8.75 102.412H6.25ZM7.5 0.588229L0.283121 13.0882H14.7169L7.5 0.588229ZM8.75 102.412L8.75 11.8382H6.25L6.25 102.412H8.75Z" fill="#6E24F3"/>
         </svg>
         <h6>E</h6>
         </div>
