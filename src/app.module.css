@@ -22,7 +22,10 @@ body {
     height: 100%;
   
 }
+.form{
+    flex:1;
 
+}
 
 .card_horizontal{
     display: flex;

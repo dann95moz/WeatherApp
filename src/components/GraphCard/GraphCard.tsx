@@ -12,6 +12,7 @@ interface GraphCardProps{
 const GraphCard = ({hour,temperatureUnit}:GraphCardProps) => {
   const theme = useTheme() as Theme;
 const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'))
   const quarterHours=['01:00','04:00','07:00','10:00','13:00','16:00','19:00','22:00']
  const formattedData= hour.map((hour)=>{
   
@@ -24,7 +25,7 @@ const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
         <h3>How's the temperature today?</h3>
          <LineChart
             
-              width={isSmallScreen?250:350}
+              width={isSmallScreen?window.innerWidth*0.7:isMediumScreen ?window.innerWidth*0.75:window.innerWidth*0.27}
               height={180}
               data={formattedData}
             >

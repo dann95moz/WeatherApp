@@ -48,11 +48,11 @@ function App() {
       ) : weatherData ? (
         <Grid container  padding={2}>
           <Grid item md={8} sm={12} padding={2}> {/* left side */}
-            <Grid container gap={2} paddingTop={8}>
+            <Grid container gap={2} >
               <Grid container spacing={2} display={'flex'} justifyContent={'space-between'}> {/* form search */}
 
-                <Grid item md={11} sm={11}>{/* input */}
-                  <form role="search" className={styles.form}>
+                <Grid item md={11} sm={11} display={'flex'} flex={1}>{/* input */}
+                  <form role="search" className={styles.form} >
                     <input
                       type="search"
                       value={inputValue}
@@ -73,17 +73,16 @@ function App() {
                {/* widget container */}
               <Grid container 
               className={styles.widgetContainer}
-             display={'flex'}
-             justifyContent={'space-between'}
+       
               p={2}>
                
-                <Grid item sm={6} md={6}>
+              
                   <CurrentWeatherWidget
                     weatherForecast={weatherData}
                     temperatureUnit={temperatureUnit}
                   />
-                </Grid>
-                <Grid item  p={2} className={styles.card_content} display={'flex'} flexDirection={'column'} justifyContent={'space-between'}>
+              
+                <Grid item lg={6} md={12} sm={12} p={2} className={styles.card_content} display={'flex'} flexDirection={'column'} justifyContent={'space-between'}>
                   <GraphCard
                     hour={weatherData.forecast.forecastday[0].hour}
                     temperatureUnit={temperatureUnit}
