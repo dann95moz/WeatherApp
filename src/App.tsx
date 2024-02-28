@@ -130,7 +130,7 @@ function App() {
                     subTitle="Today UV Index"
                     description={`${weatherData.current.uv}`}
                   >
-                    <UVIndex />
+                    <UVIndex index={1}/>
                   </MainCard>
                 </Grid>
               </Grid>
@@ -140,7 +140,7 @@ function App() {
         <Grid item md={4} sm={12}> 
           
              
-              <Grid item md={12} sm={6} className={styles.slider}>
+              <Grid item md={12} sm={6} className={styles.slider} maxWidth={window.innerWidth*.9}>
                 {filterForecastHours(
                   weatherData.forecast.forecastday[0].hour
                 ).map((hour, index) => (
