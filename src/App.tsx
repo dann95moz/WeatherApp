@@ -51,7 +51,7 @@ function App() {
             <Grid container gap={2} >
               <Grid container display={'flex'} justifyContent={'space-between'}> {/* form search */}
 
-                <Grid item md={11} sm={11} display={'flex'} flex={1} paddingRight={2}>{/* input */}
+                <Grid item md={10.7} sm={10.7} display={'flex'} flex={1} >{/* input */}
                   <form role="search" className={styles.form} >
                     <input
                       type="search"
@@ -137,7 +137,7 @@ function App() {
             </Grid>
           </Grid>
 
-          {/* <Grid item md={4} sm={12}> 
+        <Grid item md={4} sm={12}> 
           
              
               <Grid item md={12} sm={6} className={styles.slider}>
@@ -151,7 +151,7 @@ function App() {
                   />
                 ))}
               </Grid>
-              <Grid container>
+           
                 {weatherData.forecast.forecastday.map(
                   (forecastDay, index) =>
                     index > 0 && (
@@ -162,9 +162,9 @@ function App() {
                       />
                     )
                 )}
-              </Grid>
+             
            
-          </Grid> */}
+          </Grid> 
         </Grid>
       ) : null}
     </>

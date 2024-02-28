@@ -9,7 +9,7 @@ interface CardXProps{
 const CardX = ({forecastDay,temperatureUnit}:CardXProps) => {
     const getDayName = useGetDayName();    
   return (
-    <Grid item md={12} display={'flex'} justifyContent={'space-between'}>
+    <Grid container display={'flex'} justifyContent={'space-between'}>
                       <h5>
                         {getDayName(getUserLocale, new Date(forecastDay.date))}
                       </h5>

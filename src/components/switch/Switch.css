@@ -4,6 +4,7 @@
   display: inline-block;
   width: 54px;
   height: 34px;
+
 }
 
 .switch input { 
@@ -19,13 +20,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background: linear-gradient(102deg, #325AF2 0%, #6E24F3 47.5%, #9363EC 100%);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background: transparent
 }
 
 input:focus + .slider {
@@ -35,6 +36,7 @@ input:focus + .slider {
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
+  border: 1px solid  #325AF2;
 }
 
 .circle {
@@ -52,8 +54,12 @@ input:focus + .slider {
 
 .circle.left {
   left: 4px;
+  bottom: 3px; 
+  background: linear-gradient(102deg, #325AF2 0%, #6E24F3 47.5%, #9363EC 100%);
+  color: white
 }
 
 .circle.right {
-  left: 22px;
+  left: 17px;
+  bottom: 3px
 }
