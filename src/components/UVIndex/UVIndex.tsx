@@ -38,7 +38,7 @@ const UVIndex = ({index}:UVProps) => {
 </linearGradient>
 </defs>
 </svg>
-<span className='label'>{text}</span>
+<span className={styles.label}>{text}</span>
 </div>
   )
 }

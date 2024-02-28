@@ -13,6 +13,7 @@ import MainCard from "./components/MainCard/MainCard";
 import Humidity from "./components/RainChance/RainChance";
 import UVIndex from "./components/UVIndex/UVIndex";
 import { Grid } from "@mui/material";
+import Pressure from "./components/Pressure/Pressure";
 function App() {
   const [newlocation, setNewLocation] = useState<string>();
   const { weatherData, error, loading } = useWeatherData(newlocation);
@@ -105,14 +106,11 @@ function App() {
                 </Grid>
                 <Grid item md={6} sm={12} flex={1}>
                   <MainCard
-                    title={"Wind"}
-                    subTitle={"Today Wind speed"}
-                    description={`${weatherData.current.wind_kph}Km/h`}
+                    title={"Pressure"}
+                   
+                    description={`${weatherData.current.pressure_mb}mb`}
                   >
-                    <Compass
-                      size={60}
-                      direction={weatherData.current.wind_degree}
-                    />
+                    <Pressure pressure={weatherData.current.pressure_mb}/>
                   </MainCard>
                 </Grid>
                 <Grid item md={6} sm={12} flex={1}>
